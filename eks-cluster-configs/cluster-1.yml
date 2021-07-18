@@ -1,0 +1,35 @@
+# A simple example of ClusterConfig object:
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  version: "1.20"
+  name: cluster-1
+  region: us-east-1
+
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: aws-load-balancer-controller
+      namespace: kube-system
+    wellKnownPolicies:
+      awsLoadBalancerController: true
+
+nodeGroups:
+  - name: node-group-1
+    spot: true
+    instanceType: t2.large
+    desiredCapacity: 1
+
+availabilityZones: 
+  - us-east-1a
+  - us-east-1b
+
+cloudWatch:
+    clusterLogging:
+        # enable specific types of cluster control plane logs
+        # enableTypes: ["audit", "authenticator", "controllerManager"]
+        # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
+        # supported special values: "*" and "all"

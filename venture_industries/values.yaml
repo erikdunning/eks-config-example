@@ -1,0 +1,31 @@
+environment: development
+
+apphost: k8s
+
+label:
+  name: venture-industries
+
+container:
+  frontEndName: k8sfrontend
+  backEndName: k8sbackend
+  pullPolicy: Always
+  frontEndImage: tutum/hello-world
+  backEndImage: tutum/hello-world
+  namespace: venture-industries
+  frontEndTag: latest
+  backEndTag: latest
+  frontEndPort: 80
+  frontEndServicePort: 80
+  backEndPort: 8081
+  backEndServicePort: 81
+frontEndreplicas: 1
+backEndreplicas: 1
+
+# certificate:
+#   appdnsname: flamingo.westus2.cloudapp.azure.com
+#   certtype: letsencrypt-staging
+#   email: codingflamingo@gmail.com
+#   certserver: https://acme-staging-v02.api.letsencrypt.org/directory
+service:
+  port: 8888
+  type: ClusterIP
