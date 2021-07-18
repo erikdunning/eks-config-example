@@ -1,35 +1,22 @@
 #!/bin/bash
 
 export AWS_PROFILE=ventureindustries
-export AWS_REGION_1=us-east-1
-export AWS_REGION_2=us-west-2
-export EKS_CLUSTER_1=cluster-1
-export EKS_CLUSTER_2=cluster-2
+export AWS_REGION=us-east-1
+export EKS_CLUSTER=venture-compound-east
 export my_domain=ventureindustries.io
 export ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
 
-# eksctl utils associate-iam-oidc-provider \
-#   --region $AWS_REGION_1 \
-#   --cluster $EKS_CLUSTER_1 \
-#   --approve
-  
-# eksctl utils associate-iam-oidc-provider \
-#   --region $AWS_REGION_2 \
-#   --cluster $EKS_CLUSTER_2 \
-#   --approve
+# helm repo add eks https://aws.github.io/eks-charts
+# helm repo add jetstack https://charts.jetstack.io
+# helm repo update
+# helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
+#   --set clusterName=${EKS_CLUSTER} \
+#   --set serviceAccount.create=false \
+#   --set serviceAccount.name=aws-load-balancer-controller \
+#   -n kube-system
 
-# aws iam create-policy \
-#   --policy-name AWSLoadBalancerControllerIAMPolicy \
-#   --policy-document file://awslb-policy.json
+# kubectl create namespace venture-industries
 
-eksctl create iamserviceaccount \
-  --cluster $EKS_CLUSTER_1 \
-  --namespace kube-system \
-  --region $AWS_REGION_1 \
-  --name aws-load-balancer-controller
-  
-eksctl create iamserviceaccount \
-  --cluster $EKS_CLUSTER_2 \
-  --namespace kube-system \
-  --region $AWS_REGION_2 \
-  --name aws-load-balancer-controller
+helm upgrade -i venture-industries venture-industries
+
+kubectl -n venture-industries get Ingress
