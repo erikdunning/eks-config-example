@@ -5,6 +5,9 @@ metadata:
   labels:
     app: {{ .Values.label.name }}
   namespace: {{ .Values.container.namespace }}
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:285104104520:certificate/3dcd4a0d-5d39-41a1-b657-34e624196ac7
 spec:
   selector:
     app: {{ .Values.container.frontEndName }}

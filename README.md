@@ -19,6 +19,9 @@ TODO:
 - [EKS Workshop](https://www.eksworkshop.com/010_introduction/)
 - [Using a Network Load Balancer with the NGINX Ingress Controller on Amazon EKS](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/)
 - [Fargate](https://docs.aws.amazon.com/eks/latest/userguide/fargate.html)
+- *[Create an HTTPS listener for your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html)
+- *[aws cli create-listener](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/create-listener.html)
+- *[Using Amazon ECR Images with Amazon EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_EKS.html)
 - [Workload Management](https://docs.aws.amazon.com/eks/latest/userguide/eks-workloads.html)
 - [Containers Roadmap](https://github.com/aws/containers-roadmap/projects/1?card_filter_query=eks)
 
