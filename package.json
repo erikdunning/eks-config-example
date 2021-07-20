@@ -6,10 +6,13 @@
   "scripts": {
     "watch": "tsc -w -p tsconfig.json",
     "dev": "node dist/index.js",
+    "test": "echo \"No tests!\"",
     "build": "tsc -p tsconfig.json",
-    "package": "docker build -t venture-industries-laboratory:latest .",
+    "shell": "docker run -it -p 3000:3000 venture-industries-laboratory /bin/sh",
     "start": "docker run -it -p 3000:3000 venture-industries-laboratory",
-    "test": "echo \"Error: no tests\""
+    "package": "docker build -t venture-industries-laboratory:latest .",
+    "publish": "docker push venture-industries-laboratory:latest",
+    "deploy": "helm upgrade -i venture-industries venture-industries"
   },
   "keywords": [],
   "author": "Erik Dunning",

@@ -24,6 +24,7 @@ TODO:
 - *[Using Amazon ECR Images with Amazon EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_EKS.html)
 - [Workload Management](https://docs.aws.amazon.com/eks/latest/userguide/eks-workloads.html)
 - [Containers Roadmap](https://github.com/aws/containers-roadmap/projects/1?card_filter_query=eks)
+- [Using Amazon ECR with the AWS CLI](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html)
 
 ### YouTube
 - [Setup AWS Application Load Balancer Ingress in Kubernetes](https://www.youtube.com/watch?v=S8U7A-eGdOs)
@@ -42,6 +43,13 @@ TODO:
 
 
 ## Tools
+
+### `aws`
+
+```
+Logging into AWS ECR:
+aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
+```
 
 ### `kubectl`
 
@@ -90,8 +98,8 @@ helm install nginx bitnami/nginx
 #### Useful Command Examples
 
 ```
-helm upgrade -i venture-industries-1 venture_industries/
-helm uninstall venture-industries venture_industries
+helm upgrade -i venture-industries venture-industries
+helm uninstall venture-industries venture-industries
 kubectl get deployment -n kube-system aws-load-balancer-controller
 helm ls --namespace venture-industries
 ```
