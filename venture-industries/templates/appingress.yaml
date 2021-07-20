@@ -8,6 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/group.name: venture-alb-ingress-group
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:285104104520:certificate/3dcd4a0d-5d39-41a1-b657-34e624196ac7
 spec:
   rules:
   - http:
@@ -17,6 +18,4 @@ spec:
         backend:
           service:
             name: {{ .Values.container.frontEndName }}-service
-            port:
-              number: {{ .Values.container.frontEndServicePort }} 
         
