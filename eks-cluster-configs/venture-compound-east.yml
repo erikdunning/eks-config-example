@@ -16,16 +16,6 @@ iam:
       namespace: kube-system
     wellKnownPolicies:
       awsLoadBalancerController: true
-  - metadata:
-      name: cert-manager
-      namespace: cert-manager
-    wellKnownPolicies:
-      certManager: true
-  - metadata:
-      name: build-service
-      namespace: ci-cd
-    wellKnownPolicies:
-      imageBuilder: true
 
 managedNodeGroups:
   - name: nodegroup

@@ -24,6 +24,7 @@ TODO:
 - *[Using Amazon ECR Images with Amazon EKS](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_EKS.html)
 - [Workload Management](https://docs.aws.amazon.com/eks/latest/userguide/eks-workloads.html)
 - [Containers Roadmap](https://github.com/aws/containers-roadmap/projects/1?card_filter_query=eks)
+- [Setting up with Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/get-set-up-for-amazon-ecr.html)
 - [Using Amazon ECR with the AWS CLI](https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html)
 
 ### YouTube
@@ -61,6 +62,7 @@ kubectl get nodes
 kubectl -n venture-industries get Ingress
 kubectl get all -n venture-industries
 kubectl logs -f k8sfrontend-venture-industries-1-deployment-679ddf759b-6f46k -n venture-industries
+kubectl exec -it -n venture-industries pod/k8sfrontend-venture-industries-deployment-6d9bc86596-rqlr9 -- /bin/sh
 ```
 
 ### `eksctl`
