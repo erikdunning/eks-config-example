@@ -18,4 +18,6 @@ spec:
         backend:
           service:
             name: {{ .Values.container.frontEndName }}-service
+            port:
+              number: {{ .Values.container.frontEndServicePort }} 
         
