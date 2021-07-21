@@ -32,7 +32,7 @@ jobs:
           docker login -u AWS -p $(aws ecr get-login-password) ${ECR_REPOSITORY_URI} && \
           docker build -t "${ECR_REPOSITORY_URI}:latest" . && \
           docker push "${ECR_REPOSITORY_URI}:latest" && \
-          docker image prune -f
+          docker image prune -af
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
